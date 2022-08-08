@@ -15,7 +15,8 @@ export class PatientsFormComponent implements OnInit {
     patient: {}
   }
   uiState = {
-    isLoading: false
+    isLoading: false,
+    isSubmitting: false,
   }
 
   /* Forms */
@@ -50,7 +51,12 @@ export class PatientsFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.uiState.isSubmitting= true
     this.uiState.isLoading = true;
+    if(this.patientFormGroup.invalid){
+      this.uiState.isLoading = false;
+      return;
+    }
     this.appService.addPatient(this.patientFormGroup.value).subscribe({
       next: (res) => {
         this.uiState.isLoading = false;

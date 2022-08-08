@@ -9,10 +9,25 @@
           <div class="mb-4">
             <label class="form-label required">Full Name</label>
             <input type="text" class="form-control" formControlName="fullName" placeholder="First name" aria-label="First name">
+            <!-- Validation Errors -->
+            <div *ngIf="patientFormControls.fullName.errors">
+              <div
+              *ngIf="(uiState.isSubmitting && patientFormControls.fullName.errors.required) || (patientFormControls.fullName.touched && patientFormControls.fullName.errors.required)"
+              class="v-message">
+              This field is required
+            </div>
+            </div>
           </div>
           <div class="mb-4">
             <label class="form-label required">User Name</label>
             <input type="text" class="form-control" formControlName="userName" placeholder="Last name" aria-label="Last name">
+            <div *ngIf="patientFormControls.userName.errors">
+              <div
+              *ngIf="(uiState.isSubmitting && patientFormControls.userName.errors.required) || (patientFormControls.userName.touched && patientFormControls.userName.errors.required)"
+              class="v-message">
+              This field is required
+            </div>
+            </div>
           </div>
           <div class="mb-4">
             <label for="inputState" class="form-label">Gender</label>
@@ -20,6 +35,13 @@
               <option>Male</option>
               <option>Female</option>
             </select>
+            <div *ngIf="patientFormControls.gender.errors">
+              <div
+              *ngIf="(uiState.isSubmitting && patientFormControls.gender.errors.required) || (patientFormControls.gender.touched && patientFormControls.gender.errors.required)"
+              class="v-message">
+              This field is required
+            </div>
+            </div>
           </div>
           <div class="mb-4">
             <label for="inputState" class="form-label">Action</label>
@@ -27,6 +49,13 @@
               <option>New</option>
               <option>Renewal</option>
             </select>
+            <div *ngIf="patientFormControls.action.errors">
+              <div
+              *ngIf="(uiState.isSubmitting && patientFormControls.action.errors.required) || (patientFormControls.action.touched && patientFormControls.action.errors.required)"
+              class="v-message">
+              This field is required
+            </div>
+            </div>
           </div>
           <div class="d-flex justify-content-end">
             <button class="btn btn-primary" (click)="onSubmit()">
