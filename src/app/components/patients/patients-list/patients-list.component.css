@@ -1,0 +1,15 @@
+.wating{
+  background-color: #bdbcbc;
+  width: 120px;
+  margin-top: 10px;
+  border-radius: 8px;
+  color: #fff;
+}
+.ready{
+  background-color: #4dc66e;
+  width: 120px;
+  margin-top: 10px;
+  border-radius: 8px;
+  color: #fff;
+
+}

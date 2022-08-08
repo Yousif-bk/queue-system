@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-center">
+    <div class="card w-100">
+      <div class="card-header">
+        <h4 class="card-title">Patient List</h4>
+      </div>
+      <div class="card-body ">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Status</th>
+              <th scope="col">appointment</th>
+              <th scope="col">FullName</th>
+              <th scope="col">UserName</th>
+              <th scope="col">Gender</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="(!state.patient.list.length == false && !uiState.isLoading )">
+
+            <tr *ngFor="let patient of state.patient.list ">
+              <th scope="row">1</th>
+              <td [ngClass]="{'wating':patient.action === 'New','ready': patient.action === 'Renewal' } ">{{patient.action === 'New' ? 'Wating' : 'Ready'}}</td>
+              <td>{{patient.appointment}}</td>
+              <td>{{patient.fullName}}</td>
+              <td>{{patient.userName}}</td>
+              <td>{{patient.gender}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <div *ngIf="!uiState.isLoading" class="spinner-grow spinner-grow-sm mr-5" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

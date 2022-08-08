@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-center">
+    <div class="card w-50">
+      <div class="card-header">
+        <h4 class="card-title">Patient Form</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="patientFormGroup">
+          <div class="mb-4">
+            <label class="form-label required">Full Name</label>
+            <input type="text" class="form-control" formControlName="fullName" placeholder="First name" aria-label="First name">
+          </div>
+          <div class="mb-4">
+            <label class="form-label required">User Name</label>
+            <input type="text" class="form-control" formControlName="userName" placeholder="Last name" aria-label="Last name">
+          </div>
+          <div class="mb-4">
+            <label for="inputState" class="form-label">Gender</label>
+            <select id="inputState" formControlName="gender" class="form-select">
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="inputState" class="form-label">Action</label>
+            <select id="inputState" formControlName="action" class="form-select">
+              <option>New</option>
+              <option>Renewal</option>
+            </select>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-primary" (click)="onSubmit()">
+              <div *ngIf="uiState.isLoading" class="spinner-grow spinner-grow-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <span *ngIf="!uiState.isLoading">Save</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
