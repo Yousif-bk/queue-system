@@ -6,11 +6,13 @@ export class PatientData extends InMemoryDbService {
     const patients: Patient[] = [
       {
         id: 1,
+        ticketNumber: "TIK 001",
         fullName: 'John Doe',
         userName: 'jdoe',
         gender: 'Male',
-        appointment: "9:00 PM",
-        action: "New"
+        appointment: "12:18 PM",
+        action: "New",
+        doctor: "John Doe",
       }
     ];
     return { patients };

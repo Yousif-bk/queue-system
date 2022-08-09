@@ -5,6 +5,7 @@
         <h4 class="card-title">Patient Form</h4>
       </div>
       <div class="card-body">
+        <span class="text-danger" *ngIf="(uiState.isSubmitting && patientFormGroup.invalid)">Some of information incomplete</span>
         <form [formGroup]="patientFormGroup">
           <div class="mb-4">
             <label class="form-label required">Full Name</label>
@@ -52,6 +53,21 @@
             <div *ngIf="patientFormControls.action.errors">
               <div
               *ngIf="(uiState.isSubmitting && patientFormControls.action.errors.required) || (patientFormControls.action.touched && patientFormControls.action.errors.required)"
+              class="v-message">
+              This field is required
+            </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="inputState" class="form-label">Doctor</label>
+            <select id="inputState" formControlName="doctor" class="form-select">
+              <option>Ahmed Ali</option>
+              <option>Mohamed Adel</option>
+              <option>Yousif Ali</option>
+            </select>
+            <div *ngIf="patientFormControls.doctor.errors">
+              <div
+              *ngIf="(uiState.isSubmitting && patientFormControls.doctor.errors.required) || (patientFormControls.doctor.touched && patientFormControls.doctor.errors.required)"
               class="v-message">
               This field is required
             </div>

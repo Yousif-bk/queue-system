@@ -20,7 +20,7 @@ export class AppService {
   getPatient(): Observable<Patient[]>{
     return this.http.get<Patient[]>(this.patientUrl);
   }
-  addPatient(patient:Patient): Observable<Patient>{
+  createPatient(patient:Patient): Observable<Patient>{
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<Patient>(this.patientUrl, patient, { headers: headers })
   }

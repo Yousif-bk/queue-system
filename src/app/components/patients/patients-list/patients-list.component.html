@@ -10,21 +10,27 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Status</th>
-              <th scope="col">appointment</th>
+              <th scope="col">ticketNumber</th>
               <th scope="col">FullName</th>
               <th scope="col">UserName</th>
               <th scope="col">Gender</th>
+              <th scope="col">Appointment</th>
+              <th scope="col">Doctor</th>
+
             </tr>
           </thead>
           <tbody *ngIf="(!state.patient.list.length == false && !uiState.isLoading )">
 
             <tr *ngFor="let patient of state.patient.list ">
               <th scope="row">1</th>
-              <td [ngClass]="{'wating':patient.action === 'New','ready': patient.action === 'Renewal' } ">{{patient.action === 'New' ? 'Wating' : 'Ready'}}</td>
-              <td>{{patient.appointment}}</td>
+              <td [ngClass]="{'wating':patient.action === 'New','ready': patient.action === 'Ready to seen' } ">{{patient.action === 'New' ? 'Wating' : 'Ready to seens'}}</td>
+              <td class="m-4">{{patient.ticketNumber}}</td>
               <td>{{patient.fullName}}</td>
               <td>{{patient.userName}}</td>
               <td>{{patient.gender}}</td>
+              <td>{{patient.appointment}}</td>
+              <td>{{patient.doctor}}</td>
+
             </tr>
           </tbody>
         </table>

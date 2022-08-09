@@ -22,16 +22,35 @@ export class PatientsListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getInitPatient();
+    this.getInitPatients();
   }
 
-  getInitPatient() {
+  getTime(){
+    let today = new Date();
+    let time = today.getHours() + ':' + today.getMinutes() + ' PM';
+    let dateTime = time;
+   return dateTime
+  }
+
+
+  getInitPatients() {
+
     this.uiState.isLoading = true;
     this.appService.getPatient().subscribe(patient => {
-      console.log(patient)
       this.state.patient.list = patient;
+
+      this.state.patient.list.forEach((element) => {
+         if(element.appointment === this.getTime()){
+           element.action = "Ready to seen";
+         } else if(element.action === "Renewal"){
+           element.action = "Ready to seen";
+         }
+      })
+
       this.uiState.isLoading = false;
     }
     )
   }
+
+
 }
